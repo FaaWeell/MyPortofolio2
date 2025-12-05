@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fajri Fajar Shidik | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: { blue: '#3b82f6', light: '#60a5fa', purple: '#8b5cf6', dark: '#0f172a', darker: '#020617' }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neon-darker text-white font-poppins">
+    <div id="particles-container" class="fixed inset-0 z-0"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-xl font-orbitron font-bold text-white">&lt;Fajri/&gt;</a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-neon-dark/95 backdrop-blur-lg">
+            <div class="container mx-auto px-6 py-4 flex flex-col">
+                <a href="#home" class="nav-link-mobile">Home</a>
+                <a href="#about" class="nav-link-mobile">About</a>
+                <a href="#skills" class="nav-link-mobile">Skills</a>
+                <a href="#projects" class="nav-link-mobile">Projects</a>
+                <a href="#contact" class="nav-link-mobile">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-16">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="hero-content max-w-3xl mx-auto text-center">
+                <div class="profile-avatar mb-8 mx-auto">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-bg">
+                            <span class="avatar-initials">FF</span>
+                        </div>
+                        <div class="avatar-status"></div>
+                    </div>
+                </div>
+
+                <p class="text-neon-light text-xs mb-3 tracking-widest uppercase">Hello, I'm</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold mb-4">
+                    <span class="hero-name">Fajri Fajar Shidik</span>
+                </h1>
+                
+                <div class="text-lg md:text-xl text-gray-400 mb-6 h-7">
+                    <span id="typed-text"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+
+                <p class="text-gray-500 text-sm mb-8 max-w-md mx-auto leading-relaxed">
+                    Developer muda berusia <span class="text-neon-light">16 tahun</span> yang passionate 
+                    dalam membuat bot Discord, website, dan mengelola server Minecraft.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+                    <a href="#projects" class="neon-btn primary">
+                        <span>Lihat Projects</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                    <a href="#contact" class="neon-btn secondary">
+                        <span>Hubungi Saya</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center justify-center gap-10 md:gap-14">
+                    <div class="quick-stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Discord Bots</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="quick-stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="quick-stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">MC Servers</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span class="scroll-text">Scroll</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <span class="text-neon-blue text-sm font-medium tracking-wider uppercase">Tentang Saya</span>
+                    <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Young Developer</h2>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-6 items-start">
+                    <div class="md:col-span-2">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="code-title">about.js</span>
+                            </div>
+                            <pre class="code-content"><code><span class="code-keyword">const</span> <span class="code-variable">dev</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"Fajri"</span>,
+  <span class="code-property">age</span>: <span class="code-number">16</span>,
+  <span class="code-property">from</span>: <span class="code-string">"Indonesia"</span>,
+  <span class="code-property">focus</span>: [
+    <span class="code-string">"Discord Bots"</span>,
+    <span class="code-string">"Web Dev"</span>,
+    <span class="code-string">"MC Server"</span>
+  ]
+};</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-3">
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Saya Fajri Fajar Shidik, developer muda yang memulai perjalanan coding dengan membuat bot Discord. 
+                            Sekarang saya fokus mengembangkan kemampuan di web development dan server management.
+                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-5">
+                            Saya percaya usia bukan batasan untuk berkarya. Setiap project adalah kesempatan untuk belajar.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="highlight-tag"><i class="fab fa-discord"></i><span>Discord.js</span></div>
+                            <div class="highlight-tag"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                            <div class="highlight-tag"><i class="fas fa-code"></i><span>Web Dev</span></div>
+                            <div class="highlight-tag"><i class="fas fa-server"></i><span>Server</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 relative bg-neon-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-neon-blue text-sm font-medium tracking-wider uppercase">Keahlian</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Yang Saya Kuasai</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-discord text-3xl"></i></div>
+                    <h3 class="text-lg font-orbitron font-semibold mb-3">Discord Bot</h3>
+                    <p class="text-gray-400 text-sm mb-4">Bot Discord dengan fitur moderation, music, games, economy system.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Discord.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                    <div class="skill-bar-container mt-4">
+                        <div class="skill-bar" data-width="90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-laptop-code text-3xl"></i></div>
+                    <h3 class="text-lg font-orbitron font-semibold mb-3">Web Development</h3>
+                    <p class="text-gray-400 text-sm mb-4">Frontend dengan HTML, CSS, JavaScript. Sedikit backend dengan Node.js.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Tailwind</span>
+                    </div>
+                    <div class="skill-bar-container mt-4">
+                        <div class="skill-bar" data-width="85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-gamepad text-3xl"></i></div>
+                    <h3 class="text-lg font-orbitron font-semibold mb-3">Minecraft Server</h3>
+                    <p class="text-gray-400 text-sm mb-4">Setup server Minecraft, plugin management, dan optimization.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Paper</span>
+                        <span class="skill-tag">Plugins</span>
+                        <span class="skill-tag">Config</span>
+                    </div>
+                    <div class="skill-bar-container mt-4">
+                        <div class="skill-bar" data-width="88%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="tech-carousel">
+                    <div class="tech-track">
+                        <div class="tech-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="tech-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                        <div class="tech-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="tech-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                        <div class="tech-item"><i class="fab fa-discord"></i><span>Discord.js</span></div>
+                        <div class="tech-item"><i class="fas fa-database"></i><span>MongoDB</span></div>
+                        <div class="tech-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                        <div class="tech-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="tech-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                        <div class="tech-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="tech-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <span class="text-neon-blue text-sm font-medium tracking-wider uppercase">Portfolio</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Project Terbaru</h2>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="discord">Discord</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="minecraft">Minecraft</button>
+            </div>
+
+            <div class="projects-grid max-w-5xl mx-auto">
+                <!-- MultiBot Pro -->
+                <div class="project-card" data-category="discord">
+                    <div class="project-image">
+                        <div class="project-placeholder discord">
+                            <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="projects/MultiBotPro/index.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/FaaWeell" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="text-base font-orbitron font-semibold mb-2">MultiBot Pro</h4>
+                        <p class="text-gray-400 text-sm mb-3">Bot lengkap dengan moderation, music, leveling, dan economy.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span><span>Discord.js</span><span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MusicMaster Bot -->
+                <div class="project-card" data-category="discord">
+                    <div class="project-image">
+                        <div class="project-placeholder discord">
+                            <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="projects/MusicBot/index.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/FaaWeell" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="text-base font-orbitron font-semibold mb-2">MusicMaster Bot</h4>
+                        <p class="text-gray-400 text-sm mb-3">Bot musik support YouTube, Spotify, dan SoundCloud.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span><span>Lavalink</span><span>Discord.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot Dashboard -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder web">
+                            <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="projects/BotDashboard/index.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/FaaWeell" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="text-base font-orbitron font-semibold mb-2">Bot Dashboard</h4>
+                        <p class="text-gray-400 text-sm mb-3">Web dashboard untuk kontrol bot Discord dengan UI modern.</p>
+                        <div class="project-tech">
+                            <span>HTML/CSS</span><span>JavaScript</span><span>Express</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SurvivalCraft Server -->
+                <div class="project-card" data-category="minecraft">
+                    <div class="project-image">
+                        <div class="project-placeholder minecraft">
+                            <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="projects/SurvivalCraft/index.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="text-base font-orbitron font-semibold mb-2">SurvivalCraft Server</h4>
+                        <p class="text-gray-400 text-sm mb-3">Server survival CPVP/PVP Grief ala DonutSMP. Crystal PVP, raiding, dan full chaos!</p>
+                        <div class="project-tech">
+                            <span>Paper</span><span>CPVP</span><span>Grief</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guardian Bot -->
+                <div class="project-card" data-category="discord">
+                    <div class="project-image">
+                        <div class="project-placeholder discord">
+                            <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="projects/GuardianBot/index.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/FaaWeell" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="text-base font-orbitron font-semibold mb-2">Guardian Bot</h4>
+                        <p class="text-gray-400 text-sm mb-3">Bot keamanan dengan anti-raid, anti-spam, dan auto-mod.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span><span>Discord.js</span><span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GameHub Bot -->
+                <div class="project-card" data-category="discord">
+                    <div class="project-image">
+                        <div class="project-placeholder discord">
+                            <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="projects/GameHubBot/index.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/FaaWeell" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="text-base font-orbitron font-semibold mb-2">GameHub Bot</h4>
+                        <p class="text-gray-400 text-sm mb-3">Bot game dengan trivia, RPG mini, dan leaderboard.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span><span>Discord.js</span><span>Canvas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 relative bg-neon-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-neon-blue text-sm font-medium tracking-wider uppercase">Kontak</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Hubungi Saya</h2>
+                <p class="text-gray-500 text-sm mt-3 max-w-md mx-auto">
+                    Tertarik bekerja sama? Jangan ragu untuk menghubungi saya.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="contact-info">
+                    <div class="space-y-5">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4 class="font-medium text-sm">Email</h4>
+                                <p class="text-gray-400 text-sm">fajrifajarshidik@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-discord"></i></div>
+                            <div>
+                                <h4 class="font-medium text-sm">Discord</h4>
+                                <p class="text-gray-400 text-sm">faawell</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-github"></i></div>
+                            <div>
+                                <h4 class="font-medium text-sm">GitHub</h4>
+                                <p class="text-gray-400 text-sm">github.com/FaaWeell</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links mt-6">
+                        <a href="https://github.com/FaaWeell" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://discord.com/users/faawell" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="https://instagram.com/faawelll" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" name="name" required placeholder="Nama kamu">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Tulis pesan..."></textarea>
+                    </div>
+                    <button type="submit" class="neon-btn primary w-full justify-center">
+                        <span>Kirim Pesan</span>
+                        <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-2">
+                <p class="text-gray-500 text-xs">&copy; 2024 Fajri Fajar Shidik</p>
+                <p class="text-gray-500 text-xs">Made with <i class="fas fa-heart text-neon-blue"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

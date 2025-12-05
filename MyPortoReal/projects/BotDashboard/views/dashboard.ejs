@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Bot Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <nav class="bg-gray-800 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold flex items-center gap-2">
+                <i class="fas fa-robot text-blue-500"></i>
+                <span>Bot Dashboard</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" class="w-8 h-8 rounded-full">
+                <span><%= user.username %></span>
+                <a href="/logout" class="text-gray-400 hover:text-white">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-10">
+        <h1 class="text-2xl font-bold mb-2">Pilih Server</h1>
+        <p class="text-gray-400 mb-8">Pilih server yang ingin kamu kelola</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <% guilds.forEach(guild => { %>
+                <a href="/dashboard/<%= guild.id %>" class="bg-gray-800 border border-gray-700 rounded-xl p-4 hover:border-blue-500 transition flex items-center gap-4">
+                    <% if (guild.icon) { %>
+                        <img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png" class="w-12 h-12 rounded-full">
+                    <% } else { %>
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                            <span class="text-lg font-bold"><%= guild.name.charAt(0) %></span>
+                        </div>
+                    <% } %>
+                    <div>
+                        <h3 class="font-semibold"><%= guild.name %></h3>
+                        <p class="text-gray-400 text-sm">ID: <%= guild.id %></p>
+                    </div>
+                    <i class="fas fa-chevron-right ml-auto text-gray-500"></i>
+                </a>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

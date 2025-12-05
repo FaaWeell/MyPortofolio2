@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub Bot | Fajri Fajar Shidik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { neon: { pink: '#ec4899', dark: '#0f172a', darker: '#020617' } },
+                    fontFamily: { orbitron: ['Orbitron'], poppins: ['Poppins'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background: #020617; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #ec4899; border-radius: 5px; }
+        .hero-gradient { background: radial-gradient(ellipse at top, rgba(236, 72, 153, 0.2) 0%, transparent 60%); }
+        .glow-text { text-shadow: 0 0 40px rgba(236, 72, 153, 0.6); }
+        .card { background: rgba(15, 23, 42, 0.7); border: 1px solid #1e293b; transition: all 0.3s; }
+        .card:hover { border-color: rgba(236, 72, 153, 0.4); transform: translateY(-5px); }
+        .btn-primary { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3); }
+        .game-icon { animation: bounce 2s ease-in-out infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .command-row { background: rgba(15, 23, 42, 0.5); border: 1px solid #1e293b; transition: all 0.2s; }
+        .command-row:hover { border-color: rgba(236, 72, 153, 0.3); }
+    </style>
+</head>
+<body class="text-white font-poppins">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-neon-darker/90 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
+                <i class="fas fa-arrow-left"></i><span class="text-sm">Kembali</span>
+            </a>
+            <span class="text-xl font-orbitron font-bold text-pink-400">GameHub</span>
+            <a href="https://github.com/FaaWeell" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex items-center justify-center hero-gradient pt-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="w-28 h-28 mx-auto mb-8 rounded-3xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-2xl game-icon">
+                    <i class="fas fa-gamepad text-5xl text-white"></i>
+                </div>
+                <span class="inline-block px-4 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm mb-6">Discord Game Bot</span>
+                <h1 class="text-4xl md:text-6xl font-orbitron font-bold mb-6 glow-text">GameHub Bot</h1>
+                <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">Bot game Discord dengan trivia quiz, RPG adventure, profile system, dan leaderboard. Ajak teman-temanmu berkompetisi!</p>
+                <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+                    <a href="#games" class="btn-primary px-8 py-3 rounded-xl font-medium flex items-center gap-2 transition">
+                        <i class="fas fa-play"></i><span>Lihat Games</span>
+                    </a>
+                    <a href="#install" class="border border-gray-600 hover:border-pink-500 px-8 py-3 rounded-xl text-gray-400 hover:text-white transition">
+                        <span>Install Bot</span>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center gap-8">
+                    <div class="text-center"><span class="block text-2xl font-orbitron font-bold text-pink-400">3+</span><span class="text-xs text-gray-500">Games</span></div>
+                    <div class="w-px h-10 bg-gray-700"></div>
+                    <div class="text-center"><span class="block text-2xl font-orbitron font-bold text-pink-400">RPG</span><span class="text-xs text-gray-500">System</span></div>
+                    <div class="w-px h-10 bg-gray-700"></div>
+                    <div class="text-center"><span class="block text-2xl font-orbitron font-bold text-pink-400">Ranks</span><span class="text-xs text-gray-500">Leaderboard</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="py-20 bg-neon-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-pink-400 text-sm tracking-wider uppercase">Games</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Mini Games</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="card rounded-2xl p-6 text-center">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-yellow-500/20 flex items-center justify-center">
+                        <i class="fas fa-question-circle text-4xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="font-orbitron font-semibold text-lg mb-2">Trivia Quiz</h3>
+                    <p class="text-gray-400 text-sm mb-4">Jawab pertanyaan dan kumpulkan poin! Berbagai kategori tersedia.</p>
+                    <div class="text-xs text-pink-400">+10 points per jawaban benar</div>
+                </div>
+                <div class="card rounded-2xl p-6 text-center">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-red-500/20 flex items-center justify-center">
+                        <i class="fas fa-sword text-4xl text-red-500"></i>
+                    </div>
+                    <h3 class="font-orbitron font-semibold text-lg mb-2">RPG Adventure</h3>
+                    <p class="text-gray-400 text-sm mb-4">Bertarung melawan monster, naik level, dan kumpulkan gold!</p>
+                    <div class="text-xs text-pink-400">4 lokasi petualangan</div>
+                </div>
+                <div class="card rounded-2xl p-6 text-center">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-purple-500/20 flex items-center justify-center">
+                        <i class="fas fa-trophy text-4xl text-purple-500"></i>
+                    </div>
+                    <h3 class="font-orbitron font-semibold text-lg mb-2">Leaderboard</h3>
+                    <p class="text-gray-400 text-sm mb-4">Bersaing dengan pemain lain dan jadilah yang terbaik!</p>
+                    <div class="text-xs text-pink-400">4 kategori ranking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-pink-400 text-sm tracking-wider uppercase">RPG System</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Sistem Petualangan</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="card rounded-xl p-4 text-center">
+                    <i class="fas fa-tree text-2xl text-green-400 mb-2"></i>
+                    <h4 class="font-semibold">Hutan Gelap</h4>
+                    <p class="text-xs text-gray-500">Goblin, Wolf, Bandit</p>
+                </div>
+                <div class="card rounded-xl p-4 text-center">
+                    <i class="fas fa-gem text-2xl text-blue-400 mb-2"></i>
+                    <h4 class="font-semibold">Gua Kristal</h4>
+                    <p class="text-xs text-gray-500">Skeleton, Golem</p>
+                </div>
+                <div class="card rounded-xl p-4 text-center">
+                    <i class="fas fa-chess-rook text-2xl text-purple-400 mb-2"></i>
+                    <h4 class="font-semibold">Kastil Tua</h4>
+                    <p class="text-xs text-gray-500">Ghost, Vampire</p>
+                </div>
+                <div class="card rounded-xl p-4 text-center">
+                    <i class="fas fa-fire text-2xl text-orange-400 mb-2"></i>
+                    <h4 class="font-semibold">Gunung Api</h4>
+                    <p class="text-xs text-gray-500">Dragon, Fire Elemental</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="commands" class="py-20 bg-neon-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-pink-400 text-sm tracking-wider uppercase">Commands</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Daftar Perintah</h2>
+            </div>
+            <div class="max-w-2xl mx-auto space-y-3">
+                <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                    <div><code class="text-pink-400">!trivia</code> <span class="text-gray-500 text-sm ml-2">Main trivia quiz</span></div>
+                </div>
+                <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                    <div><code class="text-pink-400">!adventure</code> <span class="text-gray-500 text-sm ml-2">Pergi berpetualang</span></div>
+                </div>
+                <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                    <div><code class="text-pink-400">!profile</code> <span class="text-gray-500 text-sm ml-2">Lihat profil game</span></div>
+                </div>
+                <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                    <div><code class="text-pink-400">!leaderboard</code> <span class="text-gray-500 text-sm ml-2">Lihat ranking</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="install" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-pink-400 text-sm tracking-wider uppercase">Tech Stack</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Dibangun Dengan</h2>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-6 max-w-3xl mx-auto mb-12">
+                <div class="card rounded-xl px-6 py-4 flex items-center gap-3"><i class="fab fa-node-js text-2xl text-green-500"></i><span>Node.js</span></div>
+                <div class="card rounded-xl px-6 py-4 flex items-center gap-3"><i class="fab fa-discord text-2xl text-indigo-500"></i><span>Discord.js</span></div>
+                <div class="card rounded-xl px-6 py-4 flex items-center gap-3"><i class="fas fa-database text-2xl text-green-600"></i><span>MongoDB</span></div>
+                <div class="card rounded-xl px-6 py-4 flex items-center gap-3"><i class="fas fa-image text-2xl text-yellow-500"></i><span>Canvas</span></div>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
+                    <div class="bg-gray-800/50 px-4 py-2 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                    </div>
+                    <div class="p-6 font-mono text-sm">
+                        <p class="text-green-400">$ git clone https://github.com/FaaWeell/gamehub-bot.git</p>
+                        <p class="text-green-400">$ cd gamehub-bot</p>
+                        <p class="text-green-400">$ npm install</p>
+                        <p class="text-green-400">$ cp .env.example .env</p>
+                        <p class="text-green-400">$ npm start</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-gray-500 text-sm">&copy; 2024 Fajri Fajar Shidik</p>
+            <a href="../../index.html" class="text-pink-400 hover:text-pink-300 text-sm"><i class="fas fa-arrow-left mr-2"></i>Kembali ke Portfolio</a>
+        </div>
+    </footer>
+</body>
+</html>

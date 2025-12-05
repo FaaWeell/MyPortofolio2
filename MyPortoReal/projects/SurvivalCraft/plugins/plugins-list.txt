@@ -1,0 +1,64 @@
+# SurvivalCraft Server - Plugin List
+# Total: 40+ Plugins
+
+=== ESSENTIAL ===
+1. EssentialsX - Core commands & utilities
+2. EssentialsXChat - Chat formatting
+3. EssentialsXSpawn - Spawn management
+4. LuckPerms - Advanced permissions
+5. Vault - Economy API
+
+=== PROTECTION ===
+6. WorldGuard - Region protection
+7. WorldEdit - World editing
+8. GriefPrevention - Claim system
+9. CoreProtect - Block logging
+
+=== ECONOMY ===
+10. EconomyShopGUI - GUI shop
+11. ChestShop - Player shops
+12. Jobs Reborn - Job system
+13. AuctionHouse - Player auction
+14. PlayerVaults - Virtual chests
+
+=== GAMEPLAY ===
+15. mcMMO - RPG skill system
+16. AureliumSkills - Custom skills
+17. MythicMobs - Custom mobs
+18. EliteMobs - Boss fights
+19. Quests - Quest system
+
+=== UTILITIES ===
+20. TAB - Tab list customization
+21. DeluxeMenus - Custom GUIs
+22. Citizens - NPC system
+23. HolographicDisplays - Holograms
+24. PlaceholderAPI - Placeholders
+
+=== TELEPORTATION ===
+25. EssentialsX - /home, /spawn, /warp
+26. RandomTeleport - Random TP
+27. BetterRTP - Safe random TP
+
+=== ANTI-CHEAT ===
+28. Vulcan - Anti-cheat
+29. ExploitFixer - Exploit prevention
+
+=== CHAT ===
+30. ChatControl - Chat management
+31. DiscordSRV - Discord integration
+
+=== FUN ===
+32. HeadsPlus - Custom heads
+33. CrazyCrates - Crate system
+34. VotingPlugin - Vote rewards
+
+=== PERFORMANCE ===
+35. Spark - Performance profiler
+36. ClearLag - Lag reduction
+37. FarmLimiter - Farm optimization
+
+=== MISC ===
+38. MOTD - Server MOTD
+39. MaintenanceMode - Maintenance
+40. LiteBans - Advanced bans

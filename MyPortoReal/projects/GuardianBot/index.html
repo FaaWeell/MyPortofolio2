@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Bot | Fajri Fajar Shidik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: { blue: '#3b82f6', light: '#60a5fa', purple: '#8b5cf6', dark: '#0f172a', darker: '#020617' }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: #020617; min-height: 100vh; }
+        ::selection { background: #3b82f6; color: white; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 5px; }
+        
+        .hero-gradient {
+            background: radial-gradient(ellipse at top, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+        }
+        
+        .card {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid #1e293b;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .shield-icon {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        }
+        
+        .code-block {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+        
+        .btn-primary {
+            background: #22c55e;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 1px solid #334155;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #22c55e;
+            color: #4ade80;
+        }
+        
+        .command-row {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid #1e293b;
+            transition: all 0.2s;
+        }
+        
+        .command-row:hover {
+            border-color: rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.05);
+        }
+        
+        .protection-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .protection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #22c55e, #4ade80);
+        }
+        
+        .shield-pulse {
+            animation: shieldPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes shieldPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22c55e, transparent);
+            animation: scan 2s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="text-white font-poppins">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-neon-darker/90 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../../index.html" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="text-sm">Kembali</span>
+                </a>
+                <span class="text-xl font-orbitron font-bold text-white flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-green-500"></i>
+                    Guardian
+                </span>
+                <a href="https://github.com/FaaWeell" target="_blank" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center hero-gradient pt-16 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Shield Icon -->
+                <div class="w-28 h-28 mx-auto mb-8 rounded-3xl shield-icon flex items-center justify-center shadow-2xl shield-pulse">
+                    <i class="fas fa-shield-alt text-5xl text-white"></i>
+                </div>
+                
+                <span class="inline-block px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-sm mb-6">
+                    Security Bot
+                </span>
+                
+                <h1 class="text-4xl md:text-6xl font-orbitron font-bold mb-6 glow-text">
+                    Guardian Bot
+                </h1>
+                
+                <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+                    Bot keamanan Discord untuk melindungi server dari spam, raid, dan aktivitas berbahaya. Dengan sistem auto-moderation yang cerdas.
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+                    <a href="#install" class="btn-primary px-8 py-3 rounded-xl font-medium flex items-center gap-2">
+                        <i class="fas fa-download"></i>
+                        <span>Install Bot</span>
+                    </a>
+                    <a href="#commands" class="btn-secondary px-8 py-3 rounded-xl font-medium text-gray-400 flex items-center gap-2">
+                        <i class="fas fa-terminal"></i>
+                        <span>Lihat Commands</span>
+                    </a>
+                </div>
+                
+                <!-- Protection Stats -->
+                <div class="flex items-center justify-center gap-10">
+                    <div class="text-center">
+                        <span class="block text-3xl font-orbitron font-bold text-green-400">24/7</span>
+                        <span class="text-xs text-gray-500 uppercase tracking-wider">Protection</span>
+                    </div>
+                    <div class="w-px h-12 bg-gray-700"></div>
+                    <div class="text-center">
+                        <span class="block text-3xl font-orbitron font-bold text-green-400">Auto</span>
+                        <span class="text-xs text-gray-500 uppercase tracking-wider">Moderation</span>
+                    </div>
+                    <div class="w-px h-12 bg-gray-700"></div>
+                    <div class="text-center">
+                        <span class="block text-3xl font-orbitron font-bold text-green-400">Real-time</span>
+                        <span class="text-xs text-gray-500 uppercase tracking-wider">Detection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protection Features -->
+    <section class="py-20 bg-neon-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-green-400 text-sm font-medium tracking-wider uppercase">Proteksi</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Sistem Keamanan</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Anti-Spam -->
+                <div class="card protection-card rounded-2xl p-6">
+                    <div class="w-16 h-16 mb-4 rounded-xl bg-yellow-500/20 flex items-center justify-center">
+                        <i class="fas fa-comment-slash text-3xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="font-orbitron font-semibold text-lg mb-3">Anti-Spam</h3>
+                    <p class="text-gray-400 text-sm mb-4">Deteksi dan hentikan spam secara otomatis dengan sistem warning bertingkat.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Deteksi pesan berulang</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Auto-mute spammer</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Bulk delete spam</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Anti-Raid -->
+                <div class="card protection-card rounded-2xl p-6">
+                    <div class="w-16 h-16 mb-4 rounded-xl bg-red-500/20 flex items-center justify-center">
+                        <i class="fas fa-user-shield text-3xl text-red-500"></i>
+                    </div>
+                    <h3 class="font-orbitron font-semibold text-lg mb-3">Anti-Raid</h3>
+                    <p class="text-gray-400 text-sm mb-4">Proteksi dari serangan raid dengan deteksi mass-join dan auto-lockdown.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Deteksi mass join</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Auto kick raiders</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Lockdown otomatis</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Auto-Mod -->
+                <div class="card protection-card rounded-2xl p-6">
+                    <div class="w-16 h-16 mb-4 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                        <i class="fas fa-robot text-3xl text-purple-500"></i>
+                    </div>
+                    <h3 class="font-orbitron font-semibold text-lg mb-3">Auto-Mod</h3>
+                    <p class="text-gray-400 text-sm mb-4">Moderasi otomatis untuk kata terlarang, mention berlebihan, dan link berbahaya.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Filter kata terlarang</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Limit mention</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>Link whitelist</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands -->
+    <section id="commands" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-green-400 text-sm font-medium tracking-wider uppercase">Commands</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Daftar Perintah</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Moderation Commands -->
+                <h3 class="font-orbitron text-lg mb-4 flex items-center gap-2 text-green-400">
+                    <i class="fas fa-gavel"></i>
+                    <span>Moderation</span>
+                </h3>
+                
+                <div class="space-y-3 mb-8">
+                    <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <code class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm">!warn</code>
+                            <span class="text-gray-400 text-sm">Beri warning ke member</span>
+                        </div>
+                        <span class="text-xs text-gray-500">!warn @user [alasan]</span>
+                    </div>
+                    
+                    <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <code class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm">!kick</code>
+                            <span class="text-gray-400 text-sm">Kick member dari server</span>
+                        </div>
+                        <span class="text-xs text-gray-500">!kick @user [alasan]</span>
+                    </div>
+                    
+                    <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <code class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm">!ban</code>
+                            <span class="text-gray-400 text-sm">Ban member dari server</span>
+                        </div>
+                        <span class="text-xs text-gray-500">!ban @user [alasan]</span>
+                    </div>
+                    
+                    <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <code class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm">!mute</code>
+                            <span class="text-gray-400 text-sm">Mute member untuk durasi tertentu</span>
+                        </div>
+                        <span class="text-xs text-gray-500">!mute @user [durasi]</span>
+                    </div>
+                    
+                    <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <code class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm">!purge</code>
+                            <span class="text-gray-400 text-sm">Hapus banyak pesan sekaligus</span>
+                        </div>
+                        <span class="text-xs text-gray-500">!purge [jumlah]</span>
+                    </div>
+                    
+                    <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <code class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm">!lockdown</code>
+                            <span class="text-gray-400 text-sm">Lock atau unlock channel</span>
+                        </div>
+                        <span class="text-xs text-gray-500">!lockdown [off]</span>
+                    </div>
+                </div>
+                
+                <!-- Utility Commands -->
+                <h3 class="font-orbitron text-lg mb-4 flex items-center gap-2 text-blue-400">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Utility</span>
+                </h3>
+                
+                <div class="space-y-3">
+                    <div class="command-row rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <code class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-lg text-sm">!help</code>
+                            <span class="text-gray-400 text-sm">Tampilkan daftar command</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-neon-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-green-400 text-sm font-medium tracking-wider uppercase">Cara Kerja</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Sistem Proteksi</h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-orbitron font-bold text-xl">1</div>
+                    <h4 class="font-semibold mb-2">Deteksi</h4>
+                    <p class="text-gray-400 text-sm">Bot memantau semua aktivitas di server secara real-time</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-orbitron font-bold text-xl">2</div>
+                    <h4 class="font-semibold mb-2">Analisis</h4>
+                    <p class="text-gray-400 text-sm">Sistem menganalisis perilaku mencurigakan</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-orbitron font-bold text-xl">3</div>
+                    <h4 class="font-semibold mb-2">Tindakan</h4>
+                    <p class="text-gray-400 text-sm">Mengambil tindakan otomatis sesuai konfigurasi</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-orbitron font-bold text-xl">4</div>
+                    <h4 class="font-semibold mb-2">Logging</h4>
+                    <p class="text-gray-400 text-sm">Mencatat semua aktivitas ke log channel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation -->
+    <section id="install" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-green-400 text-sm font-medium tracking-wider uppercase">Instalasi</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Cara Install</h2>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="code-block rounded-2xl overflow-hidden">
+                    <div class="bg-gray-800/50 px-4 py-2 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        <span class="ml-auto text-xs text-gray-500">terminal</span>
+                    </div>
+                    <div class="p-6 text-sm leading-relaxed">
+                        <p class="text-gray-500"># Clone repository</p>
+                        <p class="text-green-400 mb-4">$ git clone https://github.com/FaaWeell/guardian-bot.git</p>
+                        
+                        <p class="text-gray-500"># Masuk ke folder</p>
+                        <p class="text-green-400 mb-4">$ cd guardian-bot</p>
+                        
+                        <p class="text-gray-500"># Install dependencies</p>
+                        <p class="text-green-400 mb-4">$ npm install</p>
+                        
+                        <p class="text-gray-500"># Setup environment</p>
+                        <p class="text-green-400 mb-4">$ cp .env.example .env</p>
+                        
+                        <p class="text-gray-500"># Jalankan bot</p>
+                        <p class="text-green-400">$ npm start</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 card rounded-2xl p-6">
+                    <h3 class="font-orbitron font-semibold mb-4 flex items-center gap-2">
+                        <i class="fas fa-sliders-h text-green-400"></i>
+                        <span>Konfigurasi</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">Edit <code class="bg-gray-800 px-2 py-1 rounded">config.js</code> untuk mengatur:</p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center justify-between p-3 bg-gray-800/30 rounded-lg">
+                            <code class="text-green-400">antiSpam</code>
+                            <span class="text-gray-400">Max messages, time window, mute time</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-800/30 rounded-lg">
+                            <code class="text-green-400">antiRaid</code>
+                            <span class="text-gray-400">Max joins, lockdown duration</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-800/30 rounded-lg">
+                            <code class="text-green-400">autoMod</code>
+                            <span class="text-gray-400">Banned words, max mentions, link whitelist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-20 bg-neon-dark/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-green-400 text-sm font-medium tracking-wider uppercase">Tech Stack</span>
+                <h2 class="text-2xl md:text-3xl font-orbitron font-bold mt-2">Dibangun Dengan</h2>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-6 max-w-3xl mx-auto">
+                <div class="card rounded-xl px-6 py-4 flex items-center gap-3">
+                    <i class="fab fa-node-js text-2xl text-green-500"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="card rounded-xl px-6 py-4 flex items-center gap-3">
+                    <i class="fab fa-discord text-2xl text-indigo-500"></i>
+                    <span>Discord.js</span>
+                </div>
+                <div class="card rounded-xl px-6 py-4 flex items-center gap-3">
+                    <i class="fas fa-database text-2xl text-blue-500"></i>
+                    <span>MySQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2024 Fajri Fajar Shidik</p>
+                <a href="../../index.html" class="text-green-400 hover:text-green-300 text-sm flex items-center gap-2">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Kembali ke Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
